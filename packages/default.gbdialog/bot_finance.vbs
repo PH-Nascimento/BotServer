@@ -29,8 +29,9 @@ if gost_lanc_pend = "s" or if gost_lanc_pend = "sim" then
 			talk "Pronto! O lançamento 05 foi aprovado! Até a próxima!"
 
 		else
-			talk "Pronto! O(s) lançamento(s) 05 foi aprovado! Até a próxima!"
+			talk "Pronto! O(s) lançamento(s)" + aprovacao + "foram aprovado(s)! Até a próxima!"
 
+		end if												
 else
 if gost_lanc_pend = "n" or if gost_lanc_pend = "não" then
 	talk "Posso ajudar em mais alguma coisa?"
@@ -46,78 +47,6 @@ if gost_lanc_pend = "n" or if gost_lanc_pend = "não" then
 			talk "04 - 22/04/19 - Despesa de hospedagem - R$ 690,40"
 			talk "05 - 02/05/19 - Despesa de correios AR - R$ 395,00"
 			talk **"Informe qual deseja aprovar ou T para aprovar todos ou N para nenhum"**"
-
-							
-							
-							
-							
-							
-		talk "A
-						 or 
-	if fnaliza = "não" or  then
-		talk "We are sorry, we can only accept proposals bellow 100k"
-	else
-
-		talk "What is the best due date?"	if finaliza = "n" or if finaliza = "não" then
-		talk "A
-		hear dueDate 
-
-		interestRate = 0
-		adjustment = 0
-
-		if installments < 12 then
-			interestRate = 1.60
-			adjustment = 0.09748
 		end if
-
-		if installments > 12 and installments < 18 then
-			interestRate = 1.66
-			adjustment = 0.06869
-		end if
-
-		if installments > 18 and installments < 36 then
-			interestRate = 1.64
-			adjustment = 0.05397
-		end if
-
-		if installments > 36 and installments < 48 then
-			interestRate = 1.62
-			adjustment = 0.03931
-		end if
-
-		if installments > 48 and installments < 60 then
-			interestRate = 1.70
-			adjustment = 0.03270
-		end if
-
-		if installments = 60 then
-			interestRate = 1.79
-			adjustment = 0.02916
-		end if
-
-		if installments > 60 then
-			talk "The maximum number of payments is 60"
-		end if
-
-
-		' TODO: This must be reviewed in terms of financing logic.
-		
-		nInstallments = parseIntinstallments
-		vAmmount = parseFloatammount
-		initialPayment = parseFloatvAmmount * 0.3 ' 30% of the value
-		tac = 800
-		adjustment = 1.3
-
-		totalValue = ammount - initialPayment + tac    
-		paymentValue = totalValue * adjustment
-		finalValue = paymentValue * nInstallments + initialPayment
-
-		talk "Congratulations! Your credit analysis is **done**:" 
-		talk "First payment: **" + initialPayment + "**"
-		talk "Payment value: **" + paymentValue + "**"
-		talk "Interest Rate: **" + interestRate + "%**"
-		talk "Total Value: **" + totalValue + "**"
-		talk "Final Value: **" + finalValue + "**"
-		
 	end if
 end if
